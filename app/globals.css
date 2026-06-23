@@ -164,6 +164,24 @@ body {
   padding: 1.25rem 1.5rem;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.07);
   border-left: 4px solid #e5e7eb;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 0;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  transition: box-shadow 0.2s, transform 0.2s;
+  width: 100%;
+}
+
+.check-card:hover,
+.check-card--selected {
+  box-shadow: 0 10px 22px rgba(17, 24, 39, 0.12);
+  transform: translateY(-2px);
+}
+
+.check-card--selected {
+  outline: 3px solid rgba(37, 99, 235, 0.2);
 }
 
 .check-card--pass {
@@ -202,6 +220,109 @@ body {
   line-height: 1.5;
 }
 
+.check-card__more {
+  display: inline-block;
+  margin-top: 0.85rem;
+  color: #2563eb;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.issue-panel {
+  background: #fff;
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.07);
+  border: 1px solid #e5e7eb;
+  border-left: 6px solid #22c55e;
+}
+
+.issue-panel--fail {
+  border-left-color: #ef4444;
+}
+
+.issue-panel__eyebrow {
+  color: #6b7280;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.issue-panel__header {
+  align-items: flex-start;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.issue-panel__header h2 {
+  font-size: 1.35rem;
+  margin-bottom: 0.35rem;
+}
+
+.issue-panel__header p,
+.issue-panel__grid p,
+.fix-list li,
+.example-list li {
+  color: #4b5563;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.badge {
+  border-radius: 999px;
+  flex-shrink: 0;
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 0.35rem 0.7rem;
+}
+
+.badge--pass {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.badge--fail {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.issue-panel__grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-bottom: 1.25rem;
+}
+
+.issue-panel h3 {
+  font-size: 0.95rem;
+  margin-bottom: 0.45rem;
+}
+
+.fix-list,
+.example-list {
+  background: #f9fafb;
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+}
+
+.fix-list {
+  margin-bottom: 1rem;
+}
+
+.fix-list ol,
+.example-list ul {
+  padding-left: 1.2rem;
+}
+
+.example-list li {
+  word-break: break-all;
+}
+
 @media (max-width: 600px) {
   .hero h1 {
     font-size: 1.75rem;
@@ -214,5 +335,14 @@ body {
   .score-summary {
     flex-direction: column;
     text-align: center;
+  }
+
+  .issue-panel__header,
+  .issue-panel__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .issue-panel__header {
+    flex-direction: column;
   }
 }
